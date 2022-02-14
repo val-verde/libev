@@ -45,3 +45,8 @@ if test -z "$LIBEV_M4_AVOID_LIBM"; then
 fi
 AC_SEARCH_LIBS(floor, $LIBM, [AC_DEFINE(HAVE_FLOOR, 1, Define to 1 if the floor function is available)])
 
+case $host_os in
+  cygwin* | mingw*)
+     LDFLAGS="${LDFLAGS} -no-undefined"
+     ;;
+esac
